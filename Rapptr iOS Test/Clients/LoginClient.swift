@@ -25,9 +25,18 @@ import Foundation
 
 class LoginClient {
     
-    var session: URLSession?
+    private let loginURL = ClientURLs.dev + ClientURLs.Paths.login
     
     func login(email: String, password: String, completion: @escaping (String) -> Void, error errorHandler: @escaping (String?) -> Void) {
         
+        guard let url = URL(string: loginURL) else {
+            print("Invalid URL")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            // TODO
+        }
+        task.resume()
     }
 }
