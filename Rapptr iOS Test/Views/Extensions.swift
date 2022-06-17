@@ -18,3 +18,14 @@ extension UINavigationController {
         navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
     }
 }
+
+public extension UITextField {
+    @IBInspectable var leftSpacer:CGFloat {
+        get {
+            return leftView?.frame.size.width ?? 0
+        } set {
+            leftViewMode = .always
+            leftView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
+        }
+    }
+}

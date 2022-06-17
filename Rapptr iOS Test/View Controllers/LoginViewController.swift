@@ -30,9 +30,17 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     private var client: LoginClient?
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let alpha = 0.5
+        emailTextField.backgroundColor = .white.withAlphaComponent(alpha)
+        passwordTextField.backgroundColor = .white.withAlphaComponent(alpha)
+
         title = "Login"
     }
     
