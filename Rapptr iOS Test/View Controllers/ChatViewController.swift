@@ -32,22 +32,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messages = [Message]()
+        getMessages()
+
         configureTable(tableView: chatTable)
         title = "Chat"
-        
-        // TODO: Remove test data when we have actual data from the server loaded
-        messages?.append(Message(testName: "James", withTestMessage: "Hey Guys!"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"What's up?"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"Hey! :)"))
-        messages?.append(Message(testName:"James", withTestMessage:"Want to grab some food later?"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"Sure, time and place?"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"YAS! I am starving!!!"))
-        messages?.append(Message(testName:"James", withTestMessage:"1 hr at the Local Burger sound good?"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"Sure thing"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"See you there :P"))
-        
-        chatTable.reloadData()
     }
     
     // MARK: - Private
@@ -70,7 +58,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages!.count
+        return messages?.count ?? 0
     }
     
     // MARK: - UITableViewDelegate
@@ -82,5 +70,22 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func backAction(_ sender: Any) {
         let mainMenuViewController = MenuViewController()
         self.navigationController?.pushViewController(mainMenuViewController, animated: true)
+    }
+}
+
+private extension ChatViewController {
+    func getMessages() {
+
+        if client == nil {
+            client = ChatClient()
+        }
+        client?.fetchChatData(completion: { messages in
+            DispatchQueue.main.async {
+                self.messages = messages
+                self.chatTable.reloadData()
+            }
+        }, error: { String in
+            print("Error fetching chat data")
+        })
     }
 }

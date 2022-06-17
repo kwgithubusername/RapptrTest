@@ -30,7 +30,15 @@ class ChatClient {
         }
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            //TODO
+            guard let data = data else {
+                print("Data is nil")
+                return
+            }
+            guard let messagesResponse = try? JSONDecoder().decode(MessagesResponse.self, from: data) else {
+                print("Error decoding messages")
+                return
+            }
+            completion(messagesResponse.data)
         }
         task.resume()
     }
