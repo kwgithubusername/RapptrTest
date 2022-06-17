@@ -44,6 +44,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.estimatedRowHeight = 58.0
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: - UITableViewDataSource
@@ -60,12 +62,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages?.count ?? 0
     }
-    
-    // MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 58.0
-    }
-    
+
     // MARK: - IBAction
     @IBAction func backAction(_ sender: Any) {
         let mainMenuViewController = MenuViewController()
