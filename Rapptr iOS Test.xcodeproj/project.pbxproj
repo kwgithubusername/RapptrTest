@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04304E70285D095000090263 /* ClientURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E6F285D095000090263 /* ClientURLs.swift */; };
 		04304E72285D227200090263 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E71285D227200090263 /* Colors.swift */; };
+		04304E74285D268500090263 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E73285D268500090263 /* Extensions.swift */; };
 		E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DB626C45CF300512A71 /* AppDelegate.swift */; };
 		E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9414DBF26C45CF400512A71 /* Assets.xcassets */; };
 		E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		04304E6F285D095000090263 /* ClientURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientURLs.swift; sourceTree = "<group>"; };
 		04304E71285D227200090263 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		04304E73285D268500090263 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E9414DB326C45CF300512A71 /* Rapptr iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapptr iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9414DB626C45CF300512A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9414DBF26C45CF400512A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				E9414DD326C4617B00512A71 /* Cells */,
 				04304E71285D227200090263 /* Colors.swift */,
+				04304E73285D268500090263 /* Extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				E9414DCB26C45EC900512A71 /* Message.swift in Sources */,
 				E9414DEA26C468D700512A71 /* SceneDelegate.swift in Sources */,
 				E9414DD626C4617B00512A71 /* ChatTableViewCell.swift in Sources */,
+				04304E74285D268500090263 /* Extensions.swift in Sources */,
 				E9414DE226C4618900512A71 /* AnimationViewController.swift in Sources */,
 				E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */,
 				E9414DE626C4618900512A71 /* LoginViewController.swift in Sources */,

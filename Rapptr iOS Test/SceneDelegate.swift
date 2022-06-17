@@ -20,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: menuViewController)
-
-        configureNavigationBarAppearance(navigationController)
+        navigationController.setNavigationBarColor(Colors.headerBackground)
         
         window.rootViewController = navigationController
         
@@ -58,14 +57,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
-
-extension SceneDelegate {
-    func configureNavigationBarAppearance(_ navigationController: UINavigationController) {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = Colors.headerBackground
-        navigationController.navigationBar.standardAppearance = appearance
-        navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
-    }
 }
