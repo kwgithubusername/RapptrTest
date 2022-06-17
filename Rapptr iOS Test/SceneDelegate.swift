@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: menuViewController)
-        navigationController.setNavigationBarColor(Colors.headerBackground, textColor: UIColor.white)
+        navigationController.setNavigationBarBackgroundColor(Colors.headerBackground, textColor: UIColor.white)
         
         window.rootViewController = navigationController
         
