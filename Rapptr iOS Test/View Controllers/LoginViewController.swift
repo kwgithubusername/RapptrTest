@@ -56,5 +56,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didPressLoginButton(_ sender: Any) {
+        guard let email = emailTextField.text else {
+            print("No email")
+            return
+        }
+        
+        guard let password = passwordTextField.text else {
+            print("No password")
+            return
+        }
+        
+        if client == nil {
+            client = LoginClient()
+        }
+        
+        client?.login(email: email, password: password, completion: { String in
+            //TODO
+        }, error: { String in
+            //TODO
+        })
     }
 }

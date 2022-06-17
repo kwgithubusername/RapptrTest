@@ -27,9 +27,17 @@ class LoginClient {
     
     private let loginURL = ClientURLs.dev + ClientURLs.Paths.login
     
+    private let emailParameter = "email"
+    private let passwordParameter = "password"
+
     func login(email: String, password: String, completion: @escaping (String) -> Void, error errorHandler: @escaping (String?) -> Void) {
-        
-        guard let url = URL(string: loginURL) else {
+
+        let queryItems = [
+            URLQueryItem(name: emailParameter, value: email),
+            URLQueryItem(name: passwordParameter, value: password)
+        ]
+
+        guard let url = URL(string: loginURL)?.appending(queryItems) else {
             print("Invalid URL")
             return
         }
