@@ -20,9 +20,18 @@ import Foundation
 
 class ChatClient {
     
-    var session: URLSession?
+    private let chatURL = ClientURLs.dev + ClientURLs.Paths.chatLog
     
     func fetchChatData(completion: @escaping ([Message]) -> Void, error errorHandler: @escaping (String?) -> Void) {
-        
+
+        guard let url = URL(string: chatURL) else {
+            print("Invalid URL")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            //TODO
+        }
+        task.resume()
     }
 }
