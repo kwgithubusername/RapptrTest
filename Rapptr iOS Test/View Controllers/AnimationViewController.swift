@@ -24,6 +24,8 @@ class AnimationViewController: UIViewController {
      */
     @IBOutlet weak var logoImageView: DraggableImageView!
     @IBOutlet weak var fadeButton: UIButton!
+    @IBOutlet weak var rainbowButton: UIButton!
+    private var timer: Timer?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,6 +33,19 @@ class AnimationViewController: UIViewController {
         title = "Animation"
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
+    
+    @IBAction func didPressRainbow(_ sender: Any) {
+        showRainbowView()
+        rainbowButton.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.5) {
+            self.rainbowButton.alpha = 0
+        }
+    }
+
     @IBAction func didPressFade(_ sender: Any) {
         let isVisible = self.logoImageView.alpha == 1
         let newTitle = isVisible ? "FADE IN" : "FADE OUT"
@@ -42,6 +57,19 @@ class AnimationViewController: UIViewController {
             self.fadeButton.isUserInteractionEnabled = true
             self.fadeButton.setTitle(newTitle, for: .normal)
         }
+    }
+    
+    func showRainbowView() {
+        let size = view.frame.size
+        let rainbow = RainbowView(frame: CGRect(x: size.width/2 - 50, y: size.height/2 - 50, width: 100.0, height: 100.0))
+        
+        var angle: CGFloat = 0.0
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0/60.0, repeats: true, block: { _ in
+            angle += 0.01
+            rainbow.transform = CGAffineTransform(rotationAngle: angle)
+        })
+
+        view.addSubview(rainbow)
     }
 }
 

@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="fadeButton" destination="R4X-eb-ZnV" id="k9D-PF-Ih7"/>
                 <outlet property="logoImageView" destination="5DT-RY-uzd" id="QaU-Sd-qFi"/>
+                <outlet property="rainbowButton" destination="kdO-EM-5wX" id="98w-VK-sPg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,12 +40,30 @@
                         <constraint firstAttribute="height" constant="100" id="ODJ-wP-z0r"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdO-EM-5wX">
+                    <rect key="frame" x="32" y="527" width="311" height="50"/>
+                    <color key="backgroundColor" red="0.15686275059999999" green="0.35294118520000001" blue="0.51372551919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xdy-HY-gTj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="SHOW RAINBOW">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressRainbow:" destination="-1" eventType="touchUpInside" id="g2B-sr-rF9"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="5DT-RY-uzd" secondAttribute="trailing" constant="32" id="2Ph-sL-hZz"/>
+                <constraint firstItem="R4X-eb-ZnV" firstAttribute="top" secondItem="kdO-EM-5wX" secondAttribute="bottom" constant="8" symbolic="YES" id="5Nt-n1-qp5"/>
+                <constraint firstItem="kdO-EM-5wX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="6yH-wk-O26"/>
                 <constraint firstAttribute="trailing" secondItem="R4X-eb-ZnV" secondAttribute="trailing" constant="32" id="JLK-cr-DUL"/>
+                <constraint firstAttribute="trailing" secondItem="kdO-EM-5wX" secondAttribute="trailing" constant="32" id="KXu-xS-Lii"/>
                 <constraint firstItem="R4X-eb-ZnV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="Q2V-cC-k2F"/>
+                <constraint firstItem="kdO-EM-5wX" firstAttribute="height" secondItem="R4X-eb-ZnV" secondAttribute="height" id="coY-4e-cuS"/>
                 <constraint firstItem="5DT-RY-uzd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="e6c-m2-N71"/>
                 <constraint firstAttribute="bottom" secondItem="R4X-eb-ZnV" secondAttribute="bottom" constant="32" id="eRn-iZ-LvS"/>
                 <constraint firstItem="5DT-RY-uzd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="h4v-WE-3sb"/>
