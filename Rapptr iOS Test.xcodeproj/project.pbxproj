@@ -11,7 +11,6 @@
 		04304E72285D227200090263 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E71285D227200090263 /* Colors.swift */; };
 		04304E74285D268500090263 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E73285D268500090263 /* Extensions.swift */; };
 		04304E7E285D631A00090263 /* RainbowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E7D285D631900090263 /* RainbowView.swift */; };
-		04304E80285D6DC800090263 /* DraggableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04304E7F285D6DC800090263 /* DraggableImageView.swift */; };
 		E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DB626C45CF300512A71 /* AppDelegate.swift */; };
 		E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9414DBF26C45CF400512A71 /* Assets.xcassets */; };
 		E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */; };
@@ -36,7 +35,6 @@
 		04304E71285D227200090263 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		04304E73285D268500090263 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04304E7D285D631900090263 /* RainbowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowView.swift; sourceTree = "<group>"; };
-		04304E7F285D6DC800090263 /* DraggableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableImageView.swift; sourceTree = "<group>"; };
 		E9414DB326C45CF300512A71 /* Rapptr iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapptr iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9414DB626C45CF300512A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9414DBF26C45CF400512A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				E9414DD326C4617B00512A71 /* Cells */,
 				04304E71285D227200090263 /* Colors.swift */,
 				04304E7D285D631900090263 /* RainbowView.swift */,
-				04304E7F285D6DC800090263 /* DraggableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,7 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9414DD126C460A600512A71 /* ChatClient.swift in Sources */,
-				04304E80285D6DC800090263 /* DraggableImageView.swift in Sources */,
 				04304E72285D227200090263 /* Colors.swift in Sources */,
 				E9414DE126C4618900512A71 /* ChatViewController.swift in Sources */,
 				E9414DCE26C45F9200512A71 /* LoginClient.swift in Sources */,

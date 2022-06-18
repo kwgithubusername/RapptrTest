@@ -22,17 +22,43 @@ class AnimationViewController: UIViewController {
      *    section in Swfit to show off your skills. Anything your heart desires!
      *
      */
-    @IBOutlet weak var logoImageView: DraggableImageView!
+    var logoImageView: MovableImageView = {
+        let imageView = MovableImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "ic_logo")
+        return imageView
+    }()
     @IBOutlet weak var fadeButton: UIButton!
     @IBOutlet weak var rainbowButton: UIButton!
     private var timer: Timer?
+
+    private var startingConstantPosX: CGFloat  = 0.0
+    private var startingConstantPosY: CGFloat  = 0.0
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Animation"
+        
+        view.addSubview(logoImageView)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        let horizontalConstraint = logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        logoImageView.horizontalConstraint = horizontalConstraint
+        view.addConstraint(horizontalConstraint)
+        
+        let verticalConstraint = logoImageView.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+        logoImageView.verticalConstraint = verticalConstraint
+        view.addConstraint(verticalConstraint)
+        
+        view.addConstraint(logoImageView.heightAnchor.constraint(equalToConstant: 50))
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        panGestureRecognizer.delegate = self
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.addGestureRecognizer(panGestureRecognizer)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
@@ -46,7 +72,7 @@ class AnimationViewController: UIViewController {
         }
     }
 
-    @IBAction private func didPressFade(_ sender: Any) {
+    @IBAction private func didPressFade(_ sender: Any) {        
         let isVisible = self.logoImageView.alpha == 1
         let newTitle = isVisible ? "FADE IN" : "FADE OUT"
         fadeButton.isUserInteractionEnabled = false
@@ -71,4 +97,31 @@ class AnimationViewController: UIViewController {
 
         view.addSubview(rainbow)
     }
+}
+
+extension AnimationViewController: UIGestureRecognizerDelegate {
+    @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == .began {
+
+            print("view being moved is: \(logoImageView.tag)")
+
+            startingConstantPosX = logoImageView.horizontalConstraint?.constant ?? 0
+            startingConstantPosY = logoImageView.verticalConstraint?.constant ?? 0
+
+        } else if gestureRecognizer.state == .changed {
+
+            let translation = gestureRecognizer.translation(in: self.view)
+
+            let newXConstant = startingConstantPosX + translation.x
+            let newYConstant = startingConstantPosY + translation.y
+
+            logoImageView.horizontalConstraint?.constant = newXConstant
+            logoImageView.verticalConstraint?.constant = newYConstant
+        }
+    }
+}
+
+class MovableImageView: UIImageView {
+    var horizontalConstraint: NSLayoutConstraint?
+    var verticalConstraint: NSLayoutConstraint?
 }
