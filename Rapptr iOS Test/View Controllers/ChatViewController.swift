@@ -46,6 +46,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.estimatedRowHeight = 58.0
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
     }
     
     // MARK: - UITableViewDataSource

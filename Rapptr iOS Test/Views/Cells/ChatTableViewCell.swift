@@ -20,14 +20,14 @@ class ChatTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var body: UILabel!
-    
+    @IBOutlet weak var bodyContainer: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.backgroundColor = Colors.viewBackground
-        body.layer.borderColor = Colors.chatBodyBorder.cgColor
+        bodyContainer.layer.borderColor = Colors.chatBodyBorder.cgColor
     }
     
     // MARK: - Public

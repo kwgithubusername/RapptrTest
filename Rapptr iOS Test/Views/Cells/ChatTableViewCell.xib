@@ -80,6 +80,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="body" destination="R4D-p6-QTk" id="LKm-6c-fqr"/>
+                <outlet property="bodyContainer" destination="dgI-lQ-MHr" id="2d1-y1-Ykz"/>
                 <outlet property="header" destination="NHn-U7-rWh" id="gmc-dR-cCO"/>
                 <outlet property="userImageView" destination="mCl-hU-COT" id="sha-nu-af6"/>
             </connections>
