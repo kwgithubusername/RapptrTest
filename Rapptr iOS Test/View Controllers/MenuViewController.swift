@@ -37,6 +37,12 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Coding Tasks"
+        
+        for button in [chatButton, loginButton, animationButton] {
+            button?.titleEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 10)
+            button?.contentEdgeInsets = UIEdgeInsets(top: 5, left: 25, bottom: 5, right: 10)
+            button?.backgroundColor = .white.withAlphaComponent(0.75)
+        }
     }
     
     // MARK: - Actions

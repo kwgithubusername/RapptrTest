@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="iOSTest" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Rapptr_iOS_Test" customModuleProvider="target">
             <connections>
                 <outlet property="animationButton" destination="9uL-ib-Ayk" id="ldi-Bd-aNe"/>
                 <outlet property="chatButton" destination="4Fa-5D-jYS" id="WQf-Sy-Tse"/>
@@ -22,42 +20,105 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-5D-jYS" userLabel="UIButton">
-                    <rect key="frame" x="56" y="100" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Chat">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="didPressChatButton:" destination="-1" eventType="touchUpInside" id="vKS-9T-LMp"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JX-Lv-AOm" userLabel="UIButton">
-                    <rect key="frame" x="56" y="175" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Login">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="didPressLoginButton:" destination="-1" eventType="touchUpInside" id="vMe-dG-aNn"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uL-ib-Ayk" userLabel="UIButton">
-                    <rect key="frame" x="56" y="250" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Animation">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="didPressAnimationButton:" destination="-1" eventType="touchUpInside" id="J6O-uG-LwS"/>
-                    </connections>
-                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_home_menu" translatesAutoresizingMaskIntoConstraints="NO" id="zkI-r0-0bH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCv-lr-M6K">
+                    <rect key="frame" x="18" y="227" width="339" height="254"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JX-Lv-AOm" userLabel="UIButton">
+                            <rect key="frame" x="20" y="100" width="299" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <state key="normal" title="LOGIN" image="ic_login">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didPressLoginButton:" destination="-1" eventType="touchUpInside" id="vMe-dG-aNn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uL-ib-Ayk" userLabel="UIButton">
+                            <rect key="frame" x="20" y="179" width="299" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <state key="normal" title="ANIMATION" image="ic_animation">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didPressAnimationButton:" destination="-1" eventType="touchUpInside" id="J6O-uG-LwS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-5D-jYS" userLabel="UIButton">
+                            <rect key="frame" x="20" y="21" width="299" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="XdI-sS-Zeq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <state key="normal" title="CHAT" image="ic_chat">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didPressChatButton:" destination="-1" eventType="touchUpInside" id="vKS-9T-LMp"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6JX-Lv-AOm" firstAttribute="top" secondItem="4Fa-5D-jYS" secondAttribute="bottom" constant="24" id="3go-CN-T0U"/>
+                        <constraint firstAttribute="trailing" secondItem="6JX-Lv-AOm" secondAttribute="trailing" constant="20" symbolic="YES" id="4AA-1a-Eh1"/>
+                        <constraint firstItem="4Fa-5D-jYS" firstAttribute="leading" secondItem="LCv-lr-M6K" secondAttribute="leading" constant="20" symbolic="YES" id="BDy-IH-Ufd"/>
+                        <constraint firstAttribute="bottom" secondItem="9uL-ib-Ayk" secondAttribute="bottom" constant="20" symbolic="YES" id="Ciu-fk-fS1"/>
+                        <constraint firstItem="4Fa-5D-jYS" firstAttribute="top" secondItem="LCv-lr-M6K" secondAttribute="top" constant="21" id="Dvf-N8-4aq"/>
+                        <constraint firstItem="9uL-ib-Ayk" firstAttribute="top" secondItem="6JX-Lv-AOm" secondAttribute="bottom" constant="24" id="HD6-Nd-WKT"/>
+                        <constraint firstItem="6JX-Lv-AOm" firstAttribute="height" secondItem="4Fa-5D-jYS" secondAttribute="height" id="ID1-gN-XW5"/>
+                        <constraint firstAttribute="trailing" secondItem="4Fa-5D-jYS" secondAttribute="trailing" constant="20" symbolic="YES" id="IXk-Wg-lHX"/>
+                        <constraint firstItem="6JX-Lv-AOm" firstAttribute="leading" secondItem="LCv-lr-M6K" secondAttribute="leading" constant="20" symbolic="YES" id="RPr-7r-3t7"/>
+                        <constraint firstAttribute="trailing" secondItem="9uL-ib-Ayk" secondAttribute="trailing" constant="20" symbolic="YES" id="oge-Io-eY7"/>
+                        <constraint firstItem="9uL-ib-Ayk" firstAttribute="leading" secondItem="LCv-lr-M6K" secondAttribute="leading" constant="20" symbolic="YES" id="pjn-29-g4v"/>
+                        <constraint firstItem="6JX-Lv-AOm" firstAttribute="height" secondItem="9uL-ib-Ayk" secondAttribute="height" id="v62-FR-6FP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="381" y="468"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LCv-lr-M6K" secondAttribute="trailing" constant="18" id="DHV-Tj-HZA"/>
+                <constraint firstItem="LCv-lr-M6K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="LWD-gT-3PF"/>
+                <constraint firstAttribute="bottom" secondItem="zkI-r0-0bH" secondAttribute="bottom" id="bll-1l-7io"/>
+                <constraint firstItem="zkI-r0-0bH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kdK-F7-Mud"/>
+                <constraint firstItem="LCv-lr-M6K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="227" id="mSi-WW-ibm"/>
+                <constraint firstItem="zkI-r0-0bH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="muQ-Ql-Jvf"/>
+                <constraint firstAttribute="trailing" secondItem="zkI-r0-0bH" secondAttribute="trailing" id="tCP-n0-MUV"/>
+            </constraints>
+            <point key="canvasLocation" x="552.17391304347825" y="313.39285714285711"/>
         </view>
     </objects>
+    <designables>
+        <designable name="4Fa-5D-jYS">
+            <size key="intrinsicContentSize" width="73" height="24"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="bg_home_menu" width="375" height="667"/>
+        <image name="ic_animation" width="23" height="24"/>
+        <image name="ic_chat" width="24" height="24"/>
+        <image name="ic_login" width="24" height="24"/>
+    </resources>
 </document>
