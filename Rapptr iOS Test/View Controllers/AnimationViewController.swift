@@ -22,12 +22,7 @@ class AnimationViewController: UIViewController {
      *    section in Swfit to show off your skills. Anything your heart desires!
      *
      */
-    var logoImageView: MovableImageView = {
-        let imageView = MovableImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "ic_logo")
-        return imageView
-    }()
+    var logoImageView = MovableImageView()
     @IBOutlet weak var fadeButton: UIButton!
     @IBOutlet weak var rainbowButton: UIButton!
     private var timer: Timer?
@@ -40,23 +35,7 @@ class AnimationViewController: UIViewController {
         super.viewDidLoad()
         title = "Animation"
         
-        view.addSubview(logoImageView)
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-
-        let horizontalConstraint = logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        logoImageView.horizontalConstraint = horizontalConstraint
-        view.addConstraint(horizontalConstraint)
-        
-        let verticalConstraint = logoImageView.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 200)
-        logoImageView.verticalConstraint = verticalConstraint
-        view.addConstraint(verticalConstraint)
-        
-        view.addConstraint(logoImageView.heightAnchor.constraint(equalToConstant: 50))
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        panGestureRecognizer.delegate = self
-        logoImageView.isUserInteractionEnabled = true
-        logoImageView.addGestureRecognizer(panGestureRecognizer)
+        setupLogoImageView()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,6 +62,29 @@ class AnimationViewController: UIViewController {
             self.fadeButton.isUserInteractionEnabled = true
             self.fadeButton.setTitle(newTitle, for: .normal)
         }
+    }
+    
+    private func setupLogoImageView() {
+        logoImageView.contentMode = .scaleAspectFill
+        logoImageView.image = UIImage(named: "ic_logo")
+        
+        view.addSubview(logoImageView)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        let horizontalConstraint = logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        logoImageView.horizontalConstraint = horizontalConstraint
+        view.addConstraint(horizontalConstraint)
+        
+        let verticalConstraint = logoImageView.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+        logoImageView.verticalConstraint = verticalConstraint
+        view.addConstraint(verticalConstraint)
+        
+        view.addConstraint(logoImageView.heightAnchor.constraint(equalToConstant: 50))
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        panGestureRecognizer.delegate = self
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.addGestureRecognizer(panGestureRecognizer)
     }
     
     private func showRainbowView() {
