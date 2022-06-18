@@ -33,7 +33,7 @@
                         <action selector="didPressFade:" destination="-1" eventType="touchUpInside" id="9GZ-O4-LtL"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5DT-RY-uzd" userLabel="Logo Image">
+                <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5DT-RY-uzd" userLabel="Logo Image" customClass="DraggableImageView" customModule="Rapptr_iOS_Test" customModuleProvider="target">
                     <rect key="frame" x="32" y="100" width="311" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="ODJ-wP-z0r"/>
