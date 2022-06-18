@@ -11,6 +11,7 @@ struct Colors {
     static let headerBackground = UIColor(rgb: 0x0E5C89)
     static let buttonBlue = UIColor(rgb: 0x0E5C89)
     static let viewBackground = UIColor(rgb: 0xF9F9F9)
+    static let chatBodyBorder = UIColor.lightGray
 }
 
 extension UIColor {
