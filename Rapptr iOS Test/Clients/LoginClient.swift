@@ -44,6 +44,7 @@ class LoginClient {
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             // TODO
+            completion("test")
         }
         task.resume()
     }
