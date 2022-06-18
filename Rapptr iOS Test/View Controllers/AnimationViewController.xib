@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimationViewController">
             <connections>
+                <outlet property="fadeButton" destination="R4X-eb-ZnV" id="k9D-PF-Ih7"/>
+                <outlet property="logoImageView" destination="5DT-RY-uzd" id="QaU-Sd-qFi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,29 +19,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-Rf-ezS">
-                    <rect key="frame" x="16" y="20" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Back"/>
-                    <connections>
-                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="NrF-nM-MJZ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4X-eb-ZnV">
-                    <rect key="frame" x="103" y="566" width="169" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Fade In"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4X-eb-ZnV">
+                    <rect key="frame" x="32" y="585" width="311" height="50"/>
+                    <color key="backgroundColor" red="0.15686275059999999" green="0.35294118520000001" blue="0.51372551919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Rt0-6G-SmJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="FADE IN">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="didPressFade:" destination="-1" eventType="touchUpInside" id="9GZ-O4-LtL"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5DT-RY-uzd" userLabel="Logo Image">
-                    <rect key="frame" x="137" y="283" width="100" height="100"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5DT-RY-uzd" userLabel="Logo Image">
+                    <rect key="frame" x="32" y="100" width="311" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="ODJ-wP-z0r"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5DT-RY-uzd" secondAttribute="trailing" constant="32" id="2Ph-sL-hZz"/>
+                <constraint firstAttribute="trailing" secondItem="R4X-eb-ZnV" secondAttribute="trailing" constant="32" id="JLK-cr-DUL"/>
+                <constraint firstItem="R4X-eb-ZnV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="Q2V-cC-k2F"/>
+                <constraint firstItem="5DT-RY-uzd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="e6c-m2-N71"/>
+                <constraint firstAttribute="bottom" secondItem="R4X-eb-ZnV" secondAttribute="bottom" constant="32" id="eRn-iZ-LvS"/>
+                <constraint firstItem="5DT-RY-uzd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="h4v-WE-3sb"/>
+            </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_logo" width="317" height="74"/>
+    </resources>
 </document>

@@ -22,6 +22,8 @@ class AnimationViewController: UIViewController {
      *    section in Swfit to show off your skills. Anything your heart desires!
      *
      */
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var fadeButton: UIButton!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,12 +31,16 @@ class AnimationViewController: UIViewController {
         title = "Animation"
     }
     
-    // MARK: - Actions
-    @IBAction func backAction(_ sender: Any) {
-        let mainMenuViewController = MenuViewController()
-        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
-    }
-    
     @IBAction func didPressFade(_ sender: Any) {
+        let isVisible = self.logoImageView.alpha == 1
+        let newTitle = isVisible ? "FADE IN" : "FADE OUT"
+        fadeButton.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.5) {
+            let newValue: CGFloat = isVisible ? 0 : 1
+            self.logoImageView.alpha = newValue
+        } completion: { _ in
+            self.fadeButton.isUserInteractionEnabled = true
+            self.fadeButton.setTitle(newTitle, for: .normal)
+        }
     }
 }
