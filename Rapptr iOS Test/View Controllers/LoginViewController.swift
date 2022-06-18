@@ -70,10 +70,12 @@ class LoginViewController: UIViewController {
             client = LoginClient()
         }
         
-        client?.login(email: email, password: password, completion: { String in
+        client?.login(email: email, password: password, completion: { milliseconds in
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Login Success", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                let alert = UIAlertController(title: "Login Success: Response time was \(milliseconds) milliseconds.", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
                 self.navigationController?.present(alert, animated: true)
             }
         }, error: { errorString in

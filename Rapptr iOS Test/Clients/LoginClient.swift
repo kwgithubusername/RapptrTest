@@ -46,14 +46,14 @@ class LoginClient {
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             let responseTime = Date().timeIntervalSince(startTime);
-            print("The request took \(responseTime * 1000) milliseconds")
+            let responseTimeInMilliseconds = "\(responseTime * 1000)"
 
             if let error = error {
                 errorHandler(error.localizedDescription)
             } else if let data = data, let errorMessage = try? JSONDecoder().decode(LoginError.self, from: data) {
                 errorHandler(errorMessage.message)
             } else {
-                completion("test")
+                completion(responseTimeInMilliseconds)
             }
         }
         task.resume()
