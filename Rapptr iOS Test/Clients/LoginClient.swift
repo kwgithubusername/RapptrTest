@@ -32,6 +32,8 @@ class LoginClient {
 
     func login(email: String, password: String, completion: @escaping (String) -> Void, error errorHandler: @escaping (String?) -> Void) {
 
+        let startTime = Date()
+
         let queryItems = [
             URLQueryItem(name: emailParameter, value: email),
             URLQueryItem(name: passwordParameter, value: password)
@@ -43,9 +45,22 @@ class LoginClient {
         }
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            // TODO
-            completion("test")
+            let responseTime = Date().timeIntervalSince(startTime);
+            print("The request took \(responseTime * 1000) milliseconds")
+
+            if let error = error {
+                errorHandler(error.localizedDescription)
+            } else if let data = data, let errorMessage = try? JSONDecoder().decode(LoginError.self, from: data) {
+                errorHandler(errorMessage.message)
+            } else {
+                completion("test")
+            }
         }
         task.resume()
+    }
+    
+    private struct LoginError: Decodable {
+        let code: String
+        let message: String
     }
 }

@@ -70,13 +70,18 @@ class LoginViewController: UIViewController {
             client = LoginClient()
         }
         
-        let startTime = Date()
         client?.login(email: email, password: password, completion: { String in
-            //TODO
-            let responseTime = Date().timeIntervalSince(startTime);
-            print("The request took \(responseTime * 1000) milliseconds")
-        }, error: { String in
-            //TODO
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Login Success", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.navigationController?.present(alert, animated: true)
+            }
+        }, error: { errorString in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Login Error", message: errorString, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.navigationController?.present(alert, animated: true)
+            }
         })
     }
 }
