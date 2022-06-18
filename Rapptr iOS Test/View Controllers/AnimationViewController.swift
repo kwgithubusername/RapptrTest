@@ -69,6 +69,7 @@ class AnimationViewController: UIViewController {
         logoImageView.image = UIImage(named: "ic_logo")
         
         view.addSubview(logoImageView)
+        logoImageView.alpha = 0
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
 
         let horizontalConstraint = logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
