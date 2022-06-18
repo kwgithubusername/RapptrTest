@@ -32,6 +32,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = Colors.viewBackground
+        
         getMessages()
 
         configureTable(tableView: chatTable)
@@ -47,6 +49,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.estimatedRowHeight = 58.0
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.clear
     }
     
     // MARK: - UITableViewDataSource
@@ -56,7 +59,15 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let nibs = Bundle.main.loadNibNamed("ChatTableViewCell", owner: self, options: nil)
             cell = nibs?[0] as? ChatTableViewCell
         }
-        cell?.setCellData(message: messages![indexPath.row])
+        let message = messages![indexPath.row]
+        cell?.setCellData(message: message)
+        client?.fetchAvatarData(message: message, completion: { data in
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    cell?.userImageView.image = image
+                }
+            }
+        })
         return cell!
     }
     

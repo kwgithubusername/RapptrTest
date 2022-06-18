@@ -28,12 +28,12 @@ class ChatTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.contentView.backgroundColor = Colors.viewBackground
         bodyContainer.layer.borderColor = Colors.chatBodyBorder.cgColor
+        userImageView.layer.cornerRadius = 24
     }
     
     // MARK: - Public
     func setCellData(message: Message) {
         header.text = message.username
         body.text = message.text
-        userImageView.image = nil
     }
 }

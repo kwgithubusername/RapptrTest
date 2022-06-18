@@ -42,4 +42,15 @@ class ChatClient {
         }
         task.resume()
     }
+
+    func fetchAvatarData(message: Message, completion: @escaping (Data) -> Void) {
+        if let url = message.avatarURL {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                completion(data)
+            }
+
+            task.resume()
+        }
+    }
 }
