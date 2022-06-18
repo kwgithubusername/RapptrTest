@@ -38,7 +38,7 @@ class AnimationViewController: UIViewController {
         timer?.invalidate()
     }
     
-    @IBAction func didPressRainbow(_ sender: Any) {
+    @IBAction private func didPressRainbow(_ sender: Any) {
         showRainbowView()
         rainbowButton.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.5) {
@@ -46,7 +46,7 @@ class AnimationViewController: UIViewController {
         }
     }
 
-    @IBAction func didPressFade(_ sender: Any) {
+    @IBAction private func didPressFade(_ sender: Any) {
         let isVisible = self.logoImageView.alpha == 1
         let newTitle = isVisible ? "FADE IN" : "FADE OUT"
         fadeButton.isUserInteractionEnabled = false
@@ -59,7 +59,7 @@ class AnimationViewController: UIViewController {
         }
     }
     
-    func showRainbowView() {
+    private func showRainbowView() {
         let size = view.frame.size
         let rainbow = RainbowView(frame: CGRect(x: size.width/2 - 50, y: size.height/2 - 50, width: 100.0, height: 100.0))
         

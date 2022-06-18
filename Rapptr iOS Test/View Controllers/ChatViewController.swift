@@ -76,7 +76,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     // MARK: - IBAction
-    @IBAction func backAction(_ sender: Any) {
+    @IBAction private func backAction(_ sender: Any) {
         let mainMenuViewController = MenuViewController()
         self.navigationController?.pushViewController(mainMenuViewController, animated: true)
     }

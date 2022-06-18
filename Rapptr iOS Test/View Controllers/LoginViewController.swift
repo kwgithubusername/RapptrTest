@@ -50,12 +50,12 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func backAction(_ sender: Any) {
+    @IBAction private func backAction(_ sender: Any) {
         let mainMenuViewController = MenuViewController()
         self.navigationController?.pushViewController(mainMenuViewController, animated: true)
     }
     
-    @IBAction func didPressLoginButton(_ sender: Any) {
+    @IBAction private func didPressLoginButton(_ sender: Any) {
         guard let email = emailTextField.text else {
             print("No email")
             return
